@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grappling Education</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/custom_bootstrap.css"> -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- <div class="site-wrapper-inner"> -->
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="/dashboard">Dashboard</a></li>
+                  {{#if user}}
+                    <li><a href="/users/logout">Logout</a></li>
+                  {{else}}
+                    <li><a href="/users/register">Register</a></li>
+                    <li><a href="/users/login">Login</a></li>
+                  {{/if}}
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+
+          {{{body}}}
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>&copy; 2017 Grappling Education | All Rights Reserved</p>
+            </div>
+          </div>
+
+        </div>
+      <!-- </div> -->
+    </div>
+  </body>
+</html>
