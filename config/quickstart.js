@@ -19,7 +19,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   }
   // Authorize a client with the loaded credentials, then call the
   // Google Calendar API.
-  authorize(JSON.parse(content), listEvents);
+  authorize(JSON.parse(content), queryFreeBusy);
 });
 
 /**
@@ -102,60 +102,26 @@ function storeToken(token) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth) {
-  var calendar = google.calendar('v3');
-  calendar.events.list({
-    auth: auth,
-    calendarId: 'klockesodhi@gmail.com',
-    timeMin: (new Date()).toISOString(),
-    maxResults: 20,
-    singleEvents: true,
-    orderBy: 'startTime'
-  }, function(err, response) {
-    console.log(events)
-    if (err) {
-      console.log('The API returned an error: ' + err);
-      return;
-    }
-    var events = response.items;
-    if (events.length == 0) {
-      console.log('No upcoming events found.');
-    } else {
-      console.log('Upcoming 20 events:');
-      for (var i = 0; i < events.length; i++) {
-        var event = events[i];
-        var start = event.start.dateTime || event.start.date;
-        console.log('%s - %s', start, event.summary);
-      }
-    }
-  });
-};
-
-// function queryFreeBusy(auth) {
-//   var today = new Date();
-//   var timeMax = new Date();
-//   timeMax.setDate(today.getDate()+30);
-//
+// function listEvents(auth) {
 //   var calendar = google.calendar('v3');
-//   calendar.freebusy.query({
+//   calendar.events.list({
+//     auth: auth,
+//     calendarId: 'klockesodhi@gmail.com',
 //     timeMin: (new Date()).toISOString(),
-//     timeMax: timeMax,
-//     items: [
-//       {
-//         id: 'klockesodhi@gmail.com',
-//       }
-//     ]
-// }, function(err, response) {
-//   console.log("freeBusy")
+//     maxResults: 20,
+//     singleEvents: true,
+//     orderBy: 'startTime'
+//   }, function(err, response) {
+//     console.log(events)
 //     if (err) {
 //       console.log('The API returned an error: ' + err);
 //       return;
 //     }
 //     var events = response.items;
 //     if (events.length == 0) {
-//       console.log('No free time.');
+//       console.log('No upcoming events found.');
 //     } else {
-//       console.log('Free Time:');
+//       console.log('Upcoming 20 events:');
 //       for (var i = 0; i < events.length; i++) {
 //         var event = events[i];
 //         var start = event.start.dateTime || event.start.date;
@@ -163,4 +129,38 @@ function listEvents(auth) {
 //       }
 //     }
 //   });
-// }
+// };
+
+function queryFreeBusy(auth) {
+  var today = new Date();
+  var timeMax = new Date();
+  timeMax.setDate(today.getDate()+30);
+
+  var calendar = google.calendar('v3');
+  calendar.freebusy.query({
+    timeMin: (new Date()).toISOString(),
+    timeMax: timeMax,
+    items: [
+      {
+        id: 'klockesodhi@gmail.com',
+      }
+    ]
+}, function(err, response) {
+  console.log("freeBusy")
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    var events = response.items;
+    if (events.length == 0) {
+      console.log('No free time.');
+    } else {
+      console.log('Free Time:');
+      for (var i = 0; i < events.length; i++) {
+        var event = events[i];
+        var start = event.start.dateTime || event.start.date;
+        console.log('%s - %s', start, event.summary);
+      }
+    }
+  });
+}
