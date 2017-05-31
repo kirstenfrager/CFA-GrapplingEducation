@@ -13,6 +13,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
+var MongoStore = require('connect-mongo')(session);
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/grapplingeducation')
@@ -44,7 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'grapplingeducation',
   saveUninitialized: true,
-  resave: true
+  resave: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
 }));
 
 // passport initialise
