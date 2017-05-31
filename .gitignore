@@ -27,3 +27,4 @@ benchmarks/graphs
 
 # .ENV
 .env
+client_secret.json
