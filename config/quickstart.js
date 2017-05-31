@@ -19,7 +19,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   }
   // Authorize a client with the loaded credentials, then call the
   // Google Calendar API.
-  authorize(JSON.parse(content), queryFreeBusy);
+  authorize(JSON.parse(content), listEvents);
 });
 
 /**
@@ -102,26 +102,79 @@ function storeToken(token) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-// function listEvents(auth) {
+
+function listEvents(auth) {
+  var calendar = google.calendar('v3');
+  calendar.events.list({
+    auth: auth,
+    calendarId: 'klockesodhi@gmail.com',
+    timeMin: (new Date()).toISOString(),
+    maxResults: 10,
+    singleEvents: true,
+    orderBy: 'startTime'
+  }, function(err, response) {
+    // console.log(events)
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    var events = response.items;
+    // console.log(events)
+    if (events.length == 0) {
+      console.log('No upcoming events found.');
+    } else {
+      console.log('Upcoming 10 events:');
+      for (var i = 0; i < events.length; i++) {
+        var event = events[i];
+        var start = event.start.dateTime || event.start.date;
+        var startReadable = new Date(start).toString();
+        var end = event.end.dateTime || event.end.date;
+        var endReadable = new Date(end).toString();
+
+        // console.log('%s - %s', startReadable, endReadable);
+
+        // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
+        // creating a hash with key value pairs of start time and end time for each event
+        busyTime = { startTime: startReadable, endTime: endReadable };
+        console.log(busyTime)
+      }
+    }
+  });
+};
+
+// listEvents();
+// busyEvents = (startReadable, endReadable)
+// console.log(busyEvents)
+
+// desiredEvents : array you make of possible appointments - say 1 hour on the hour as we said from 7am-7pm weekdays.
+
+
+
+// function queryFreeBusy(auth) {
+//   var today = new Date();
+//   var timeMax = new Date();
+//   timeMax.setDate(today.getDate()+30);
+//
 //   var calendar = google.calendar('v3');
-//   calendar.events.list({
-//     auth: auth,
-//     calendarId: 'klockesodhi@gmail.com',
+//   calendar.freebusy.query({
 //     timeMin: (new Date()).toISOString(),
-//     maxResults: 20,
-//     singleEvents: true,
-//     orderBy: 'startTime'
-//   }, function(err, response) {
-//     console.log(events)
+//     timeMax: timeMax,
+//     items: [
+//       {
+//         id: 'klockesodhi@gmail.com',
+//       }
+//     ]
+// }, function(err, response) {
+//   console.log("freeBusy")
 //     if (err) {
 //       console.log('The API returned an error: ' + err);
 //       return;
 //     }
 //     var events = response.items;
 //     if (events.length == 0) {
-//       console.log('No upcoming events found.');
+//       console.log('No free time.');
 //     } else {
-//       console.log('Upcoming 20 events:');
+//       console.log('Free Time:');
 //       for (var i = 0; i < events.length; i++) {
 //         var event = events[i];
 //         var start = event.start.dateTime || event.start.date;
@@ -129,38 +182,4 @@ function storeToken(token) {
 //       }
 //     }
 //   });
-// };
-
-function queryFreeBusy(auth) {
-  var today = new Date();
-  var timeMax = new Date();
-  timeMax.setDate(today.getDate()+30);
-
-  var calendar = google.calendar('v3');
-  calendar.freebusy.query({
-    timeMin: (new Date()).toISOString(),
-    timeMax: timeMax,
-    items: [
-      {
-        id: 'klockesodhi@gmail.com',
-      }
-    ]
-}, function(err, response) {
-  console.log("freeBusy")
-    if (err) {
-      console.log('The API returned an error: ' + err);
-      return;
-    }
-    var events = response.items;
-    if (events.length == 0) {
-      console.log('No free time.');
-    } else {
-      console.log('Free Time:');
-      for (var i = 0; i < events.length; i++) {
-        var event = events[i];
-        var start = event.start.dateTime || event.start.date;
-        console.log('%s - %s', start, event.summary);
-      }
-    }
-  });
-}
+// }
