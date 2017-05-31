@@ -29,23 +29,23 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-function authorize(credentials, callback) {
-  var clientSecret = credentials.installed.client_secret;
-  var clientId = credentials.installed.client_id;
-  var redirectUrl = credentials.installed.redirect_uris[0];
-  var auth = new googleAuth();
-  var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+  function authorize(credentials, callback) {
+    var clientSecret = credentials.installed.client_secret;
+    var clientId = credentials.installed.client_id;
+    var redirectUrl = credentials.installed.redirect_uris[0];
+    var auth = new googleAuth();
+    var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
   // Check if we have previously stored a token.
-  fs.readFile(TOKEN_PATH, function(err, token) {
-    if (err) {
-      getNewToken(oauth2Client, callback);
-    } else {
-      oauth2Client.credentials = JSON.parse(token);
-      callback(oauth2Client);
-    }
-  });
-}
+    fs.readFile(TOKEN_PATH, function(err, token) {
+       if (err) {
+         getNewToken(oauth2Client, callback);
+       } else {
+         oauth2Client.credentials = JSON.parse(token);
+         callback(oauth2Client);
+       }
+     });
+   }
 
 /**
  * Get and store new token after prompting for user authorization, and then
@@ -73,6 +73,7 @@ function getNewToken(oauth2Client, callback) {
         return;
       }
       oauth2Client.credentials = token;
+      console.log("token is: ", token)
       storeToken(token);
       callback(oauth2Client);
     });
@@ -111,6 +112,7 @@ function listEvents(auth) {
     singleEvents: true,
     orderBy: 'startTime'
   }, function(err, response) {
+    console.log(events)
     if (err) {
       console.log('The API returned an error: ' + err);
       return;
@@ -127,4 +129,38 @@ function listEvents(auth) {
       }
     }
   });
-}
+};
+
+// function queryFreeBusy(auth) {
+//   var today = new Date();
+//   var timeMax = new Date();
+//   timeMax.setDate(today.getDate()+30);
+//
+//   var calendar = google.calendar('v3');
+//   calendar.freebusy.query({
+//     timeMin: (new Date()).toISOString(),
+//     timeMax: timeMax,
+//     items: [
+//       {
+//         id: 'klockesodhi@gmail.com',
+//       }
+//     ]
+// }, function(err, response) {
+//   console.log("freeBusy")
+//     if (err) {
+//       console.log('The API returned an error: ' + err);
+//       return;
+//     }
+//     var events = response.items;
+//     if (events.length == 0) {
+//       console.log('No free time.');
+//     } else {
+//       console.log('Free Time:');
+//       for (var i = 0; i < events.length; i++) {
+//         var event = events[i];
+//         var start = event.start.dateTime || event.start.date;
+//         console.log('%s - %s', start, event.summary);
+//       }
+//     }
+//   });
+// }
