@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var User = require('../models/user');
 var configAuth = require('./auth');
@@ -37,6 +38,7 @@ module.exports = function(passport) {
     });
   });
 
+// facebook passport stategy
   passport.use(new FacebookStrategy({
       clientID: configAuth.facebookAuth.FACEBOOK_APP_ID,
       clientSecret: configAuth.facebookAuth.FACEBOOK_APP_SECRET,
@@ -68,5 +70,38 @@ module.exports = function(passport) {
         });
       });
     }));
+
+// google passport strategy
+    passport.use(new GoogleStrategy({
+        clientID: configAuth.googleAuth.GOOGLE_APP_ID,
+        clientSecret: configAuth.googleAuth.GOOGLE_APP_SECRET,
+        callbackURL: configAuth.googleAuth.GOOGLE_CALLBACK_URL,
+        // profileFields: ['id', 'emails', 'name'],
+      },
+      function(accessToken, refreshToken, profile, done) {
+        process.nextTick(function() {
+          User.findOne({ 'google.id': profile.id }, function(err, user) {
+            if(err)
+              return done(err);
+            if(user)
+              return done(null, user);
+            else {
+              var newUser = new User();
+              console.log(profile)
+              newUser.google.id = profile.id;
+              newUser.google.token = accessToken;
+              newUser.google.firstName = profile.name.givenName;
+              newUser.google.lastName = profile.name.familyName;
+              newUser.google.email = profile.emails[0].value;
+
+              newUser.save(function(err) {
+                if(err)
+                  throw err;
+                return done(null, newUser);
+              });
+            }
+          });
+        });
+      }));
 
 };

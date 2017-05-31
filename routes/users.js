@@ -83,4 +83,11 @@ router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/users/login' }));
 
+// Google passport login routes
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] } ));
+
+router.get('/auth/google/callback',
+  passport.authenticate('google', { successRedirect: '/',
+                                      failureRedirect: '/users/login' }));
+
 module.exports = router;

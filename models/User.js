@@ -26,6 +26,13 @@ var UserSchema = mongoose.Schema({
       firstName: String,
       lastName: String,
     },
+    google: {
+      id: String,
+      token: String,
+      email: String,
+      firstName: String,
+      lastName: String,
+    },
   });
 
 // variable we can access outside this file
