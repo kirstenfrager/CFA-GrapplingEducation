@@ -127,15 +127,17 @@ function listEvents(auth) {
       for (var i = 0; i < events.length; i++) {
         var event = events[i];
         var start = event.start.dateTime || event.start.date;
-        var startReadable = new Date(start).toString();
         var end = event.end.dateTime || event.end.date;
-        var endReadable = new Date(end).toString();
+        var startDate = new Date(start).toDateString();
+        var startTime = new Date(start).toTimeString();
+        var endTime = new Date(end).toTimeString();
 
         // console.log('%s - %s', startReadable, endReadable);
 
         // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
         // creating a hash with key value pairs of start time and end time for each event
-        busyTime = { startTime: startReadable, endTime: endReadable };
+        // ***************** date bug because of night shifts????
+        busyTime = { date: startDate, startTime: startTime, endTime: endTime };
         console.log(busyTime)
       }
     }
