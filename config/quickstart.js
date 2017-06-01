@@ -137,7 +137,8 @@ function listEvents(auth) {
         // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
         // creating a hash with key value pairs of start time and end time for each event
         // ***************** date bug because of night shifts????
-        busyTime = { date: startDate, startTime: startTime, endTime: endTime };
+        // busyTime = { date: startDate, startTime: startTime, endTime: endTime };
+        busyTime = { start: start, end: end }
         console.log(busyTime)
       }
     }
@@ -148,7 +149,7 @@ function listEvents(auth) {
 // busyEvents = (startReadable, endReadable)
 // console.log(busyEvents)
 
-// desiredEvents : array you make of possible appointments - say 1 hour on the hour as we said from 7am-7pm weekdays.
+// desiredEvents : array you make of possible appointments - eg q1 hour on the hour as we said from 9am-10pm.
 
 
 
