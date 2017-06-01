@@ -10,7 +10,7 @@ var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
-var busyTime = 0;
+// var busyTime = 0;
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -133,17 +133,24 @@ function listEvents(auth) {
         var startTime = new Date(start).toTimeString();
         var endTime = new Date(end).toTimeString();
 
-        // console.log('%s - %s', startReadable, endReadable);
+        // console.log('%s - %s', start, end);
 
         // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
         // creating a hash with key value pairs of start time and end time for each event
         // ***************** date bug because of night shifts????
         // busyTime = { date: startDate, startTime: startTime, endTime: endTime };
-        busyTime = { start: start, end: end }
+        // busyTime = { start: start, end: end }
         // console.log(busyTime)
         // return busyTime;
 
-        exports.hello = "hellokppppii"
+        // exports.hello = "hellokppppii"
+
+        // **** busyTime: array of events from google calendar which has : startDateTime and endDateTime.
+        busyTime = { start: start, end: end}
+        console.log(busyTime)
+        reverseTime = { end: end, start: start }
+        console.log(reverseTime)
+
       }
     }
   });
@@ -151,7 +158,7 @@ function listEvents(auth) {
 
 // console.log(listEvents())
 // busyEvents = (startReadable, endReadable)
-console.log(busyTime)
+// console.log(busyTime)
 
 // desiredEvents : array you make of possible appointments - eg q1 hour on the hour as we said from 9am-10pm.
 
