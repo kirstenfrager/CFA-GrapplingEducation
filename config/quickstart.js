@@ -10,6 +10,7 @@ var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
+var busyTime = 0;
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -139,15 +140,18 @@ function listEvents(auth) {
         // ***************** date bug because of night shifts????
         // busyTime = { date: startDate, startTime: startTime, endTime: endTime };
         busyTime = { start: start, end: end }
-        console.log(busyTime)
+        // console.log(busyTime)
+        // return busyTime;
+
+        exports.hello = "hellokppppii"
       }
     }
   });
 };
 
-// listEvents();
+// console.log(listEvents())
 // busyEvents = (startReadable, endReadable)
-// console.log(busyEvents)
+console.log(busyTime)
 
 // desiredEvents : array you make of possible appointments - eg q1 hour on the hour as we said from 9am-10pm.
 

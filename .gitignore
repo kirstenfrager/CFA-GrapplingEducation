@@ -33,3 +33,7 @@ service_accont.json
 # folders
 timekits.handlebars
 oldnavbar
+service_account.json
+googleApiOne.js
+googleApiTwo.js
+googleApiThree.js
