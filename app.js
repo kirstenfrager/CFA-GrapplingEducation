@@ -24,6 +24,7 @@ var index = require('./routes/index');
 var contact = require('./routes/contact');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
+var timekit = require('./routes/timekit');
 
 // initialise the app
 var app = express();
@@ -91,6 +92,7 @@ app.use('/', index);
 app.use('/', contact);
 app.use('/', dashboard);
 app.use('/users', users);
+app.use('/timekit', timekit);
 
 app.set('port', (3001));
 
