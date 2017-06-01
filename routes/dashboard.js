@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
 /* GET home page. */
 router.get('/dashboard', ensureAuthenticated, ensureAdmin, function(req, res, next) {
-  res.render('dashboard');
+  const userId = req.session.passport.user;
+  User.find({})
+  .then(user => {
+    res.render('dashboard', { user: user });
+  })
 });
 
 // authenticate user
