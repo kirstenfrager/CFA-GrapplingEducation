@@ -23,14 +23,6 @@ router.post('/contact', function(req, res, next) {
     ]
   };
 
-  // validations
-  req.checkBody('name', 'First name is required').notEmpty();
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('message', 'Username is required').notEmpty();
-
-  var errors = req.validationErrors();
-
-
   mailgun.messages().send(data, function (error, body) {
     console.log(body);
     if(!error) {
