@@ -20,6 +20,7 @@
     "express-validator": "*",
     "google-auth-library": "^0.10.0",
     "googleapis": "^19.0.0",
+    "mailgun-js": "^0.11.2",
     "mongodb": "*",
     "mongoose": "^4.10.3",
     "morgan": "~1.8.1",

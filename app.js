@@ -21,6 +21,7 @@ var db = mongoose.connection;
 
 // files used for routes
 var index = require('./routes/index');
+var contact = require('./routes/contact');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
 
@@ -87,6 +88,7 @@ app.use(function (req, res, next) {
 
 // middleware for route files
 app.use('/', index);
+app.use('/', contact);
 app.use('/', dashboard);
 app.use('/users', users);
 
