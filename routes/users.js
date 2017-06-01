@@ -42,13 +42,11 @@ router.post('/register', function(req, res, next) {
     });
   } else {
       var newUser = new User({
-        local: {
           firstName: firstName,
           lastName: lastName,
           email: email,
           username: username,
-          password: password
-        }
+          password: password,
       });
 
     User.createUser(newUser, function(err, user) {

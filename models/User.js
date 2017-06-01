@@ -22,17 +22,13 @@ var UserSchema = mongoose.Schema({
     role: {
       type: String,
       default: 'user',
-    }
+    },
     facebook: {
       id: String,
       token: String,
       email: String,
       firstName: String,
       lastName: String,
-      role: {
-        type: String,
-        default: 'user',
-      }
     },
     google: {
       id: String,
@@ -40,10 +36,6 @@ var UserSchema = mongoose.Schema({
       email: String,
       firstName: String,
       lastName: String,
-      role: {
-        type: String,
-        default: 'user',
-      }
     },
   });
 
