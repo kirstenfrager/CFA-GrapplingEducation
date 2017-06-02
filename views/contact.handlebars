@@ -1,33 +1,76 @@
-<div class="container">
-  <form class="form-horizontal" role="form" method="post" action="/contact">
-  	<div class="form-group">
-  		<label for="name" class="col-sm-2 control-label">Name</label>
-  		<div class="col-sm-10">
-  			<input type="text" class="form-control" name="name" placeholder="First & Last Name" required>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label for="email" class="col-sm-2 control-label">Email</label>
-  		<div class="col-sm-10">
-  			<input type="email" class="form-control" name="email" placeholder="example@domain.com" required>
-  		</div>
-  	</div>
-    <div class="form-group">
-  		<label for="email" class="col-sm-2 control-label">Contact Number</label>
-  		<div class="col-sm-10">
-  			<input type="tel" class="form-control" name="mobile">
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label for="message" class="col-sm-2 control-label">Message</label>
-  		<div class="col-sm-10">
-  			<textarea class="form-control" rows="4" name="message" required></textarea>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<div class="col-sm-10 col-sm-offset-2">
-  			<button type="submit" class="btn btn-default">Submit</button>
-  		</div>
-  	</div>
-  </form>
+<div id="wrapper">
+    <div id="header" class="header-logo parallax-contactpage"></div>
+      <div id="content">
+        <div id="navbar" class="row center-navigation" data-sticky-container>
+          <nav id="main" class="navbar sticky" role="navigation">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-2">
+                <ul class="nav navbar-nav desktop">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Athletes</a></li>
+                  <li><a href="/"><img id="logo-navbar-middle" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496368346/GrapplingEducation_Icon_ojffw9.png" width="180" alt="Logo Thing main logo"></a></li>
+                  <li><a href="#">Programs</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+</div>
+
+<div class="content-down">
+  <div class="container">
+    <div class="row">
+        <h1 class="header-font">CONTACT US</h1>
+    </div>
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-4 col-cs-12 contact-text">
+      <p>
+        Hopefully our FAQs can answer most of your questions.
+      </p>
+      <p>
+        In the event that you still have some unanswered, please send your enquiry via our contact form.
+      </p>
+      <p>
+        Make sure the contact details are filled out so that we can get in touch with you.
+      </p>
+    </div>
+    <div class="col-md-7 col-xs-12 pull-right contact-form">
+      <form class="form-horizontal" role="form" method="post" action="/contact">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" placeholder="First & Last Name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" name="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Number</label>
+          <div class="col-sm-10">
+            <input type="tel" class="form-control" name="mobile">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message" class="col-sm-2 control-label">Message</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" rows="4" name="message" required></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
 </div>
