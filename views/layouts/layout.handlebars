@@ -7,24 +7,22 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <div class="site-wrapper">
-      <!-- <div class="site-wrapper-inner"> -->
-        <div class="cover-container">
-          <div class="masthead clearfix">
-            <div class="inner">
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li><a href="/dashboard">Dashboard</a></li>
-                  {{#if user}}
-                    <li><a href="/users/logout">Logout</a></li>
-                  {{else}}
-                    <li><a href="/users/register">Register</a></li>
-                    <li><a href="/users/login">Login</a></li>
-                  {{/if}}
-                </ul>
-              </nav>
-            </div>
-          </div>
+
+  <header role="banner">
+    <div class="row">
+      <nav id="navbar-primary" class="navbar" role="navigation">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <ul class="nav navbar-nav desktop">
+              <li class="active"><a href="#">About</a></li>
+              <li><a href="#">Athletes</a></li>
+              <li><a href="/"><img id="logo-navbar-middle" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496368346/GrapplingEducation_Icon_ojffw9.png" width="200" alt="Logo Thing main logo"></a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
 
           {{#if success_msg}}
             <div class="alert alert-success">{{success_msg}}</div>
@@ -46,8 +44,6 @@
             </div>
           </div>
 
-        </div>
-      <!-- </div> -->
-    </div>
+
   </body>
 </html>

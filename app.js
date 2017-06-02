@@ -31,7 +31,10 @@ var app = express();
 
 // view engine setup. want a folder called views to handle views
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'layout',
+  partialsDir: __dirname + '/views/partials/',
+ }));
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public

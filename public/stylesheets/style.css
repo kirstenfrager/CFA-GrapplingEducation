@@ -1,12 +1,51 @@
+
+
 /*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+},
 
 a {
   color: #00B7FF;
-}*/
+},*/
 
 .margin-body {
   margin-top: 40px;
+}
+
+.navbar li {
+  display: inline-block;
+  float: none;
+}
+
+.navbar a {
+  color: black;
+ }
+ a:hover {
+   background-color: transparent !important;
+   color: #195700;
+ }
+}
+
+.pagination-centered {
+  text-align:center;
+}
+
+
+/*.navbar {
+  width: 100%;
+  text-align: center;
+  > li {
+    display: inline-block;
+    float: none;
+    > a {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}*/
+
+.timekit-platform {
+  /*width: 50vh;*/
+  margin-left: 3em;
 }
