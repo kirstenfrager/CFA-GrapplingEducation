@@ -24,13 +24,17 @@ var index = require('./routes/index');
 var contact = require('./routes/contact');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
+var timekit = require('./routes/timekit');
 
 // initialise the app
 var app = express();
 
 // view engine setup. want a folder called views to handle views
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'layout',
+  partialsDir: __dirname + '/views/partials/',
+ }));
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
@@ -91,6 +95,7 @@ app.use('/', index);
 app.use('/', contact);
 app.use('/', dashboard);
 app.use('/users', users);
+app.use('/timekit', timekit);
 
 app.set('port', (3001));
 

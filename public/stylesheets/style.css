@@ -1,12 +1,104 @@
-/*body {
-  padding: 50px;
+#content {
+  position: relative;
+}
+
+#content > #navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+body {
+  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496389606/opacity-logo-transparent2_uj572a.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*overflow: hidden;*/
+  /*margin-top: 5em;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+
+.header-logo {
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496382790/imageedit_15_2171933211_zyqppv.png');*/
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496383129/grappling1_javadf.jpg');*/
+  /*background-position: center;;*/
+  /*background-size: auto;
+  background-repeat: no-repeat;
+  height: 300px;*/
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496381304/Facebook_Cover_s1hwyf.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 300px;*/
+}
+
+.parallax {
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496383129/grappling1_javadf.jpg');*/
+  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496382790/imageedit_15_2171933211_zyqppv.png');
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496385888/grappling1trans_ennrwv.png');*/
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496383132/grappling5_bmcank.jpg');*/
+  height: 300px;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  /*background-size: cover;*/
+  /*background-size: 300px 100px;*/
+}
+
+/*yield page styling*/
+
+.center-navigation {
+  /*padding-left: 5em;*/
+  margin-top: -6em;
+}
+
+.height {
+  height: 1000px;
+}
+
+.footer {
+  /*position: absolute;*/
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  text-align: center;
+}
+
+/*.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.1);
 }*/
 
-.margin-body {
-  margin-top: 40px;
+.navbar-fixed-top {
+  /*padding-top: 200px;*/
+}
+
+.navbar li {
+  display: inline-block;
+  float: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar a {
+  color: black;
+}
+
+a:hover {
+   background-color: transparent !important;
+   color: #195700;
+ }
+
+
+
+
+
+
+
+
+.timekit-platform {
+  /*width: 50vh;*/
+  margin-left: 3em;
 }
