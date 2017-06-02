@@ -8,68 +8,9 @@
   </head>
   <body>
 
-  <div id="wrapper">
-  <div id="header" class="header-logo parallax"></div>
-    <div id="content">
-      <div id="navbar" class="row center-navigation" data-sticky-container>
-        <nav id="main" class="navbar sticky" role="navigation">
-          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-              <ul class="nav navbar-nav desktop">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Athletes</a></li>
-                <li><a href="/"><img id="logo-navbar-middle" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496368346/GrapplingEducation_Icon_ojffw9.png" width="190" alt="Logo Thing main logo"></a></li>
-                <li><a href="#">Programs</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
+  <div class="height">
+  {{{body}}}
   </div>
-
-
-
-
-
-
-  <!-- <div class="header-logo parallax"></div>
-
-  <header>
-
-      <div class="row center-navigation" data-sticky-container>
-        <nav id="main" class="navbar sticky" role="navigation">
-          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-              <ul class="nav navbar-nav desktop">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Athletes</a></li>
-                <li><a href="/"><img id="logo-navbar-middle" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496368346/GrapplingEducation_Icon_ojffw9.png" width="190" alt="Logo Thing main logo"></a></li>
-                <li><a href="#">Programs</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-          </div>
-        </nav>
-      </div>
-
-  </header> -->
-
-    {{#if success_msg}}
-      <div class="alert alert-success">{{success_msg}}</div>
-    {{/if}}
-
-    {{#if error_msg}}
-      <div class="alert alert-danger">{{error_msg}}</div>
-    {{/if}}
-
-    {{#if error}}
-      <div class="alert alert-danger">{{error}}</div>
-    {{/if}}
-
-    <div class="height">
-    {{{body}}}
-    </div>
-
-
-
 
   <div class="footer">
       <p>&copy; 2017 Grappling Education | All Rights Reserved</p>
