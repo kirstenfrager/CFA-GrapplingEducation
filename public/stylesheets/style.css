@@ -1,3 +1,58 @@
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+
+.navbar {
+  box-shadow: 1px 3px 3px rgba(0,0,0,.5);
+  border-radius: 0px;
+  background: transparent;
+  border: none;
+}
+
+.navbar li {
+  display: inline-block;
+  float: none;
+}
+
+.logo-homepage {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496465831/GrapplingEducation_buffer_fgwqre.png');
+  background-size: 630px;
+  background-position: top;
+  height: 250px;
+}
+
+.logo img {
+  /*border-radius: 50%;*/
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+}
+
+img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+li.logo {
+  max-width: 0;
+  overflow: hidden;
+  transition: width 3s ease, background-color 3s ease;
+  /*transition: all 3s;*/
+  padding-top: 5px;
+  margin-bottom: -10px;
+}
+
+.fixed-nav li.logo {
+  max-width: 150px;
+}
+
+.header-font {
+  font-size: 18px;
+}
+
+
 #content {
   position: relative;
 }
@@ -21,15 +76,24 @@ body {
   margin-top: 150px;
 }
 
-.header-font {
+/*.header-font {
   font-size: 60px;
   padding-left: 20px;
-}
+}*/
 
 hr {
   border-color: #828282;
   padding-bottom: 2em;
 }
+
+/*.navbar {
+  border: none;
+  background-image: linear-gradient(top, black 40%, transparent 60%);
+  background-image: -o-linear-gradient(top, black 40%, transparent 60%);
+  background-image: -moz-linear-gradient(top, black 40%, transparent 60%);
+  background-image: -webkit-linear-gradient(top, black 40%,transparent 60%);
+  background-image: -ms-linear-gradient(top, black 40%, transparent 60%);
+}*/
 
 .header-logo {
   /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496382790/imageedit_15_2171933211_zyqppv.png');*/
@@ -87,7 +151,7 @@ hr {
   /*padding-top: 200px;*/
 }
 
-.navbar li {
+/*.navbar li {
   display: inline-block;
   float: none;
   font-weight: bold;
@@ -103,7 +167,7 @@ a:hover {
    background-color: transparent !important;
    color: #195700;
  }
-
+*/
 
 /*contact page*/
 
