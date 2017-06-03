@@ -1,65 +1,63 @@
-
-
 <div id="bookingjs">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.timekit.io/booking-js/v1/booking.min.js" defer></script>
-      <!-- <div id="bookingjs"> -->
-     <script type="text/javascript">
-        window.timekitBookingConfig = {
-          name:     'Grappling Education',
-          email:    'kfrager@gmail.com',
-          apiToken: 'Ka180YUZX8Ybe1udv7NFSDjhVbpapVCx',
-          calendar: '22f86f0c-ee80-470c-95e8-dadd9d05edd2',
-          // app:      'back-to-the-future',
-          app:      'grappling-education-206',
-          widgetId: '2053345d-9d2f-4033-b7e2-b2a4e2775858',
-          bookingFields: {
-            name: {
-               placeholder: 'Full Name',
-               prefilled: false,
-               locked: false
-            },
-            email: {
-              placeholder: 'Email',
-              disabled: true
-            },
-            phone: {
-              placeholder: 'Contact Number',
-              enabled: true,
-              required: true
-            },
-            comment: {
-              enabled: true,
-            },
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.timekit.io/booking-js/v1/booking.min.js" defer></script>
+  <script src="/javascripts/style.js"></script>
+    <!-- <div id="bookingjs"> -->
+   <script type="text/javascript">
+      window.timekitBookingConfig = {
+        name:     'Grappling Education',
+        email:    'kfrager@gmail.com',
+        apiToken: 'Ka180YUZX8Ybe1udv7NFSDjhVbpapVCx',
+        calendar: '22f86f0c-ee80-470c-95e8-dadd9d05edd2',
+        app:      'grappling-education-206',
+        widgetId: '2053345d-9d2f-4033-b7e2-b2a4e2775858',
+        bookingFields: {
+          name: {
+             placeholder: 'Full Name',
+             prefilled: false,
+             locked: false
           },
-          fullCalendar: {
-            header: {
-              left:       '',
-              center:     '',
-              // right:      'today, prev, next'   // not
-            },
-            views: {
-              agenda: {
-                displayEventEnd: false
-              }
-            },
-            // businessHours: {
-            //   dow: [ 1, 2, 3, 4, 6, 7 ],
-            //   start: '09:00',
-            //   end: '21:00',
-            // },
-            // allDaySlot:   false,
-            // scrollTime:   '08:00:00',
-            // timezone:     'local',
-            // defaultView:  sizing.view,     // Inserted dynamically based on the current width of the widget
-            // height:       sizing.height,   // Inserted dynamically based on the current width of the widget
-            // eventClick:   function(event), // Handled internally in Booking.js (overwrite if you want to replace the booking page)
-            // windowResize: function(view)   // Handled internally in Booking.js (overwrite if you want to disable or change automatic resizing)
+          email: {
+            placeholder: 'Email',
+            disabled: true
           },
-          timekitFindTime: {
-            future:       '3 weeks',      // how long time into the future that timeslots should be returned
-            length:       '1 hour',       // the duration of the bookable timeslots
+          phone: {
+            placeholder: 'Contact Number',
+            enabled: true,
+            required: true
           },
-        }
-    </script>
-  </div>
+          comment: {
+            enabled: true,
+          },
+        },
+        fullCalendar: {
+          header: {
+            left:       '',
+            center:     '',
+            right:      'today, prev, next'   // not
+          },
+          views: {
+            agenda: {
+              displayEventEnd: false
+            }
+          },
+          // businessHours: {
+          //   dow: [ 1, 2, 3, 4, 6, 7 ],
+          //   start: '09:00',
+          //   end: '21:00',
+          // },
+          // allDaySlot:   false,
+          // scrollTime:   '08:00:00',
+          // timezone:     'local',
+          // defaultView:  sizing.view,     // Inserted dynamically based on the current width of the widget
+          // height:       sizing.height,   // Inserted dynamically based on the current width of the widget
+          // eventClick:   function(event), // Handled internally in Booking.js (overwrite if you want to replace the booking page)
+          // windowResize: function(view)   // Handled internally in Booking.js (overwrite if you want to disable or change automatic resizing)
+        },
+        timekitFindTime: {
+          future:       '3 weeks',      // how long time into the future that timeslots should be returned
+          length:       '1 hour',       // the duration of the bookable timeslots
+        },
+      }
+  </script>
+</div>

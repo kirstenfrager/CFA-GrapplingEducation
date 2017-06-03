@@ -1,5 +1,5 @@
 body {
-  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496389606/opacity-logo-transparent2_uj572a.png');
+  /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496389606/opacity-logo-transparent2_uj572a.png');*/
   background-repeat: no-repeat;
   background-size: cover;
   /*overflow: hidden;*/
@@ -24,17 +24,20 @@ hr {
   padding-top: 2em;
 }
 
+.one-buffer-below {
+  padding-bottom: 1em;
+}
+
+.two-buffer-below {
+  padding-bottom: 2em;
+}
+
 .center-navigation {
   /*padding-left: 5em;*/
   margin-top: -6em;
 }
 
 .height {
-  height: 1000px;
-}
-
-
-.timekit-platform {
-  /*width: 50vh;*/
-  margin-left: 3em;
+  /*height: 1000px;*/
+  margin-top: 112px;
 }
