@@ -1,0 +1,64 @@
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+
+.navbar {
+  box-shadow: 1px 3px 3px rgba(0,0,0,.5);
+  border-radius: 0px;
+  background: transparent;
+  border: none;
+}
+
+.navbar li {
+  display: inline-block;
+  float: none;
+}
+
+.logo-homepage {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496476947/imageedit_35_2844103630_x0x9tz.png');
+  background-size: 630px;
+  background-position: top;
+  height: 250px;
+}
+
+.logo img {
+  /*border-radius: 50%;*/
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+}
+
+img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+li.logo {
+  max-width: 0;
+  overflow: hidden;
+  transition: width 3s ease, background-color 3s ease;
+  /*transition: all 3s;*/
+  padding-top: 5px;
+  margin-bottom: -10px;
+}
+
+.fixed-nav li.logo {
+  max-width: 150px;
+}
+
+.header-font {
+  font-size: 18px;
+}
+
+
+#content {
+  position: relative;
+}
+
+#content > #navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
