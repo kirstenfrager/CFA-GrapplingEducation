@@ -1,0 +1,18 @@
+<div id="wrapper">
+    <div id="header" class="header-logo parallax-homepage"></div>
+      <div id="content">
+        <div id="navbar" class="row center-navigation">
+          <nav id="main" class="navbar" role="navigation">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-2">
+                <ul class="nav navbar-nav">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Athletes</a></li>
+                  <li><a href="/"><img id="logo-navbar-middle" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496368346/GrapplingEducation_Icon_ojffw9.png" width="180" alt="Logo Thing main logo"></a></li>
+                  <li><a href="#">Programs</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+  </div>
