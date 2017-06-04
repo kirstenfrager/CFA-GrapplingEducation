@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px|Work+Sans');
+
+.headings {
+  font-size: 40px;
+  padding-left: 15px;
+}
+
+.contact-text {
+  font-size: 20px;
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+}
+
+.submit-button {
+  padding-left: 1em;
+}
