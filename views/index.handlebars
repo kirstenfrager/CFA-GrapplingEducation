@@ -1,4 +1,6 @@
-<section class="slider-pages">
+
+
+<section  id="mobile-display-none" class="slider-pages desktop-only">
   <article class="js-scrolling__page js-scrolling__page-1 js-scrolling--active">
     <div class="slider-page slider-page--left">
       <div class="slider-page--skew">
@@ -104,7 +106,7 @@
   </div>
 
   <div class="row two-buffer">
-    <div class="col-md-2 col-md-offset-5">
+    <div class="col-md-2 col-md-offset-5 button-center">
       <div type="button" class="btn" data-toggle="modal" data-target="#myModal">
         <svg>
           <rect x="0" y="0" fill="none" width="164" height="43" />
@@ -115,31 +117,18 @@
   </div>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        {{> timekits }}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          {{> timekits }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-
-
-
-
-
-
-<!--
-
-<div class="row timekit-row">
-  <div class="timekit-platform col-md-10 col-sm-12 col-md-offset-1">
-    {{> timekits }}
-  </div>
-</div> -->

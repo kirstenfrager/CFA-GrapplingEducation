@@ -4,6 +4,12 @@
   z-index: 2;
 }
 
+
+
+.button-center {
+  text-align: center;
+}
+
 .changing-text {
   text-align: center;
 }
@@ -108,6 +114,24 @@ body {
 
 
 /*image carousel code*/
+
+/*//medium+ screen sizes*/
+@media (min-width:992px) {
+    .desktop-only {
+        display:block !important;
+    }
+}
+
+/*//small screen sizes*/
+@media (max-width: 991px) {
+    .mobile-only {
+        display:block !important;
+    }
+
+    .desktop-only {
+        display:none !important;
+    }
+}
 
 .slider-pages {
   overflow: hidden;
