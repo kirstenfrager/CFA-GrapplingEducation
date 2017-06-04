@@ -45,8 +45,7 @@ li.logo {
   overflow: hidden;
   transition: width 3s ease, background-color 3s ease;
   /*transition: all 3s;*/
-  padding-top: 5px;
-  margin-bottom: -10px;
+  margin-bottom: -20px;
 }
 
 .fixed-nav li.logo {
