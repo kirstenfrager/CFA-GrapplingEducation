@@ -114,42 +114,60 @@ function storeToken(token) {
 /////////////////////////////////////////////////////////////////////////////////////////////
 function listEvents(auth) {
   var calendar = google.calendar('v3');
-// create counter for array holding all free time
-  var count = 0;
-// create a new date with time set to 00:00:00 for min
+  var countMin = 8;
+  // start working hours time : start query
+  var countMax = 9;
+  // one hour seperation
+
+  var freeTime = [0,0,0,0,0,0,0,0,0,0,0,0];
+  // empty array to pass in freeTime : list of all times available to book (no event scheduled)
+  // 0 represents time unavailable to book. needs to be subsituted with event
+
   var dmin = new Date();
-  dmin.setHours(0,0,0);
-// create a new date with time set to 00:00:00 for min
   var dmax = new Date();
-  dmax.setHours(0,0,0);
-// create loop that steps through and checks for free time periods
-// create an array of free events
-  var freeEvents = [];
 
-  for (var i = 0; i < 23; i++) {
-    dmin.setHours(i,0,0);
-    dmax.setHours(i+1,0,0);
-    calendar.events.list({
-      auth: auth,
-      calendarId: 'klockesodhi@gmail.com',
-      timeMin: (dmin.toISOString()),
-    // add in a max time set 1 hour apart from the min time
+  var counter = 0;
 
-      timeMax: (dmax.toISOString()),
-      maxResults: 10,
-      singleEvents: true,
-      orderBy: 'startTime'
-    }, function(err, response) {
-    // console.log(events)
-      if (err) {
-        console.log('The API returned an error: ' + err);
-      return;
-    }
-      var events = response.items;
-    // console.log(events)
-      if (events.length == 0) {
-        console.log(dmin);
+    dmin.setHours(countMin,0,0);
+    dmax.setHours(countMax,0,0);
+
+      calendar.events.list({
+        auth: auth,
+        calendarId: 'klockesodhi@gmail.com',
+        timeMin: (dmin.toISOString()),
+      // add in a max time set 1 hour apart from the min time
+
+        timeMax: (dmax.toISOString()),
+        maxResults: 1,
+        singleEvents: true,
+        orderBy: 'startTime'
+      }, function(err, response) {
+      // console.log(events)
+        if (err) {
+          console.log('The API returned an error: ' + err);
+        return;
       }
+        var events = response.items;
+
+      // console.log(events)
+        if (events.length == 0) {
+          // freeTime[counter] = (freeTime[counter] + countMin);
+          // counter = counter + 1;
+
+          console.log("Available to book a class")
+          // console.log("free" + freeTime)
+        } else {
+          // counter = counter + 1;
+          console.log("unable to book class")
+          // console.log(false)
+        }
+        })
+        // countMin = countMin + 1;
+        // countMax = countMax + 1;
+  }
+  // console.log("original" + freeTime)
+
+
     //else {
       //console.log('Upcoming 10 events:');
       //for (var i = 0; i < events.length; i++) {
@@ -159,7 +177,3 @@ function listEvents(auth) {
         //var startDate = new Date(start).toDateString();
         //var startTime = new Date(start).toTimeString();
         //var endTime = new Date(end).toTimeString();
-      })
-    }
-
-    }
