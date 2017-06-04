@@ -7,9 +7,17 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+a {
+  cursor: pointer;
+}
+
 hr {
   border-color: #828282;
   padding-bottom: 2em;
+}
+
+.center-all {
+  text-align: center;
 }
 
 .one-buffer {
