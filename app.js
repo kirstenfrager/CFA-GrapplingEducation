@@ -26,6 +26,7 @@ var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
 var timekit = require('./routes/timekit');
 var programs = require('./routes/programs');
+var athletes = require('./routes/athletes');
 
 // initialise the app
 var app = express();
@@ -96,6 +97,7 @@ app.use('/', index);
 app.use('/', contact);
 app.use('/', dashboard);
 app.use('/', programs);
+app.use('/', athletes);
 app.use('/users', users);
 app.use('/timekit', timekit);
 
