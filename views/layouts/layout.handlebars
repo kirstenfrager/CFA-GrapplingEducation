@@ -16,7 +16,9 @@
         <nav id="navbar" class="navbar navbar-default" role="navigation">
             <div class="collapse navbar-collapse" id="navbar-primary-collapse">
               <ul class="nav navbar-nav header-font">
-                <li class="logo"><img class="logo-img" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496462129/imageedit_31_2410809323_cgwddu.png" width="60px"></a></li>
+                <a href="/">
+                  <li class="logo"><img class="logo-img" src="http://res.cloudinary.com/df0hftplx/image/upload/v1496462129/imageedit_31_2410809323_cgwddu.png" width="60px"></a></li>
+                </a>
               </ul>
               <ul class="nav navbar-nav header-font">
                 <li class="links-up"><a href="/">HOME</a></li>
@@ -39,7 +41,7 @@
     {{#if error}}
       <div class="alert alert-danger">{{error}}</div>
     {{/if}}
-    <div class="height two-buffer-below">
+    <div class="height two-buffer two-buffer-below">
     {{{body}}}
     </div>
     <div class="footer">
