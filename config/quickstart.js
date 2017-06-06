@@ -3,6 +3,7 @@ var fs = require('fs');
 var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
+const getTimeSlots = require('../models/bookingSlots');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/calendar-nodejs-quickstart.json
@@ -119,10 +120,21 @@ function listEvents(auth) {
       return;
     }
     var events = response.items;
+
+    var slots = getTimeSlots(new Date(), 7);
+
     // console.log(events)
     if (events.length == 0) {
       console.log('No upcoming events found.');
     } else {
+
+      for (var i = 0; i < slots.length; i++) {
+        var slot = slots[i];
+// write another test copy off screen data google gave you and go back to calendar test. demo data from google.
+// write function that updates slots based on googles calendar
+    **********  updateBookingSlotsFromGoogleEvents()
+
+
       console.log('Upcoming 10 events:');
       for (var i = 0; i < events.length; i++) {
         var event = events[i];
@@ -132,7 +144,9 @@ function listEvents(auth) {
         var startTime = new Date(start).toTimeString();
         var endTime = new Date(end).toTimeString();
 
-        // console.log('%s - %s', startReadable, endReadable);
+
+
+        console.log('%s - %s', startReadable, endReadable);
 
         // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
         // creating a hash with key value pairs of start time and end time for each event
