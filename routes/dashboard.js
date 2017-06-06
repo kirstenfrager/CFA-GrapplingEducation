@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var googleApiOne = require('../config/googleApiOne');
+var googleApiThree = require('../config/googleApiThree');
 
 /* GET home page. */
 router.get('/dashboard', ensureAuthenticated, ensureAdmin, function(req, res, next) {
   const userId = req.session.passport.user;
   User.find({})
   .then(user => {
-    res.render('dashboard', { user: user });
+    res.render('dashboard', { user: user, timekitBookings: googleApiOne.timekitBookings, freeTime: googleApiThree.freeTime });
   })
 });
 

@@ -4,15 +4,12 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
-
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/calendar-nodejs-quickstart.json
 var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
-// var busyTime = 0;
-
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -24,7 +21,6 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   // Google Calendar API.
   authorize(JSON.parse(content), listEvents);
 });
-
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -40,7 +36,6 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
     var auth = new googleAuth();
     var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-
   // Check if we have previously stored a token.
     fs.readFile(TOKEN_PATH, function(err, token) {
        if (err) {
@@ -51,7 +46,6 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
        }
      });
    }
-
 
 /**
  * Get and store new token after prompting for user authorization, and then
@@ -86,7 +80,6 @@ function getNewToken(oauth2Client, callback) {
   });
 }
 
-
 /**
  * Store token to disk be used in later program executions.
  *
@@ -104,76 +97,92 @@ function storeToken(token) {
   console.log('Token stored to ' + TOKEN_PATH);
 }
 
-
 /**
  * Lists the next 10 events on the user's primary calendar.
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 
-/////////////////////////////////////////////////////////////////////////////////////////////
 function listEvents(auth) {
   var calendar = google.calendar('v3');
-  var countMin = 8;
-  // start working hours time : start query
-  var countMax = 9;
-  // one hour seperation
+  calendar.events.list({
+    auth: auth,
+    calendarId: 'klockesodhi@gmail.com',
+    timeMin: (new Date()).toISOString(),
+    maxResults: 10,
+    singleEvents: true,
+    orderBy: 'startTime'
+  }, function(err, response) {
+    // console.log(events)
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    var events = response.items;
+    // console.log(events)
+    if (events.length == 0) {
+      console.log('No upcoming events found.');
+    } else {
+      console.log('Upcoming 10 events:');
+      for (var i = 0; i < events.length; i++) {
+        var event = events[i];
+        var start = event.start.dateTime || event.start.date;
+        var end = event.end.dateTime || event.end.date;
+        var startDate = new Date(start).toDateString();
+        var startTime = new Date(start).toTimeString();
+        var endTime = new Date(end).toTimeString();
 
-  var freeTime = [0,0,0,0,0,0,0,0,0,0,0,0];
-  // empty array to pass in freeTime : list of all times available to book (no event scheduled)
-  // 0 represents time unavailable to book. needs to be subsituted with event
+        // console.log('%s - %s', startReadable, endReadable);
 
-  var dmin = new Date();
-  var dmax = new Date();
-
-  var counter = 0;
-
-    dmin.setHours(countMin,0,0);
-    dmax.setHours(countMax,0,0);
-
-      calendar.events.list({
-        auth: auth,
-        calendarId: 'klockesodhi@gmail.com',
-        timeMin: (dmin.toISOString()),
-      // add in a max time set 1 hour apart from the min time
-
-        timeMax: (dmax.toISOString()),
-        maxResults: 1,
-        singleEvents: true,
-        orderBy: 'startTime'
-      }, function(err, response) {
-      // console.log(events)
-        if (err) {
-          console.log('The API returned an error: ' + err);
-        return;
+        // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
+        // creating a hash with key value pairs of start time and end time for each event
+        // ***************** date bug because of night shifts????
+        // busyTime = { date: startDate, startTime: startTime, endTime: endTime };
+        // busyTime = { start: start, end: end }
+        // console.log(busyTime)
       }
-        var events = response.items;
+    }
+  });
+};
 
-      // console.log(events)
-        if (events.length == 0) {
-          // freeTime[counter] = (freeTime[counter] + countMin);
-          // counter = counter + 1;
+// listEvents();
+// busyEvents = (startReadable, endReadable)
+// console.log(busyEvents)
 
-          console.log("Available to book a class")
-          // console.log("free" + freeTime)
-        } else {
-          // counter = counter + 1;
-          console.log("unable to book class")
-          // console.log(false)
-        }
-        })
-        // countMin = countMin + 1;
-        // countMax = countMax + 1;
-  }
-  // console.log("original" + freeTime)
+// desiredEvents : array you make of possible appointments - eg q1 hour on the hour as we said from 9am-10pm.
 
 
-    //else {
-      //console.log('Upcoming 10 events:');
-      //for (var i = 0; i < events.length; i++) {
-        //var event = events[i];
-        //var start = event.start.dateTime || event.start.date;
-        //var end = event.end.dateTime || event.end.date;
-        //var startDate = new Date(start).toDateString();
-        //var startTime = new Date(start).toTimeString();
-        //var endTime = new Date(end).toTimeString();
+
+// function queryFreeBusy(auth) {
+//   var today = new Date();
+//   var timeMax = new Date();
+//   timeMax.setDate(today.getDate()+30);
+//
+//   var calendar = google.calendar('v3');
+//   calendar.freebusy.query({
+//     timeMin: (new Date()).toISOString(),
+//     timeMax: timeMax,
+//     items: [
+//       {
+//         id: 'klockesodhi@gmail.com',
+//       }
+//     ]
+// }, function(err, response) {
+//   console.log("freeBusy")
+//     if (err) {
+//       console.log('The API returned an error: ' + err);
+//       return;
+//     }
+//     var events = response.items;
+//     if (events.length == 0) {
+//       console.log('No free time.');
+//     } else {
+//       console.log('Free Time:');
+//       for (var i = 0; i < events.length; i++) {
+//         var event = events[i];
+//         var start = event.start.dateTime || event.start.date;
+//         console.log('%s - %s', start, event.summary);
+//       }
+//     }
+//   });
+// }

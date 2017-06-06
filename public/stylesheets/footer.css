@@ -11,3 +11,16 @@
 .footer-links img {
   width: 60px;
 }
+
+.admin-login a {
+  color: #333333;
+}
+
+.admin-login a:hover {
+    text-decoration: none;
+    color: #195700;
+}
+
+.admin-login p {
+  padding-top: 1em;
+}
