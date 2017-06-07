@@ -12,7 +12,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
+// var mongo = require('mongodb');
 var MongoStore = require('connect-mongo')(session);
 
 const mlabpassword = process.env.DBPASSWORD
