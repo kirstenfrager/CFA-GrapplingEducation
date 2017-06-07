@@ -135,18 +135,18 @@ function listEvents(auth) {
     // **********  updateBookingSlotsFromGoogleEvents()
 
 
-      console.log('Upcoming 10 events:');
-      for (var i = 0; i < events.length; i++) {
-        var event = events[i];
-        var start = event.start.dateTime || event.start.date;
-        var end = event.end.dateTime || event.end.date;
-        var startDate = new Date(start).toDateString();
-        var startTime = new Date(start).toTimeString();
-        var endTime = new Date(end).toTimeString();
+      // console.log('Upcoming 10 events:');
+      // for (var i = 0; i < events.length; i++) {
+      //   var event = events[i];
+      //   var start = event.start.dateTime || event.start.date;
+      //   var end = event.end.dateTime || event.end.date;
+      //   var startDate = new Date(start).toDateString();
+      //   var startTime = new Date(start).toTimeString();
+      //   var endTime = new Date(end).toTimeString();
 
 
 
-        console.log('%s - %s', startReadable, endReadable);
+        // console.log('%s - %s', startDate, endReadable);
 
         // **** busyEvents: array of events from google calendar which has : startDateTime and endDateTime.
         // creating a hash with key value pairs of start time and end time for each event
@@ -154,7 +154,7 @@ function listEvents(auth) {
         // busyTime = { date: startDate, startTime: startTime, endTime: endTime };
         // busyTime = { start: start, end: end }
         // console.log(busyTime)
-      }
+      // }
     }
   }
   });
