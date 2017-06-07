@@ -18,8 +18,8 @@ var MongoStore = require('connect-mongo')(session);
 const mlabpassword = process.env.DBPASSWORD
 
 var mongoose = require('mongoose');
-mongoose.connect(`mongodb://grapplingeducation:${mlabpassword}@ds113282.mlab.com:13282/grappling-education`);
-// mongoose.connect('mongodb://localhost/grapplingeducation')
+// mongoose.connect(`mongodb://grapplingeducation:${mlabpassword}@ds113282.mlab.com:13282/grappling-education`);
+mongoose.connect('mongodb://localhost/grapplingeducation')
 var db = mongoose.connection;
 
 // files used for routes
@@ -106,10 +106,10 @@ app.use('/', bookings);
 app.use('/users', users);
 app.use('/timekit', timekit);
 
-// app.set('port', (3001));
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.set('port', (3001));
+// app.listen(process.env.PORT || 3000, function(){
+//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// });
 
 // app.listen(app.get('port'), function() {
 //   console.log('Server started on port '+app.get('port'));
