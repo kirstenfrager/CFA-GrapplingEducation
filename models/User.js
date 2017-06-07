@@ -40,7 +40,7 @@ var UserSchema = mongoose.Schema({
   });
 
 // variable we can access outside this file
-var User = module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
 
 // user functions
 // create user
