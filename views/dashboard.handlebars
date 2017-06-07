@@ -1,14 +1,50 @@
-<table class="table">
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-  </tr>
-{{#each user}}
-  <tr>
-    <td>{{firstName}}{{facebook.firstName}}{{google.firstName}}</td>
-    <td>{{lastName}}{{facebook.lastName}}{{google.lastName}}</td>
-    <td>{{email}}{{facebook.email}}{{google.email}}</td>
-  </tr>
-{{/each}}
-</table>
+<div class="container two-buffer">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        Grappling Education Bookings
+      </h4>
+    </div>
+      <div class="panel-body">
+        <!-- {{timekitBookings}} -->
+
+        {{freeTime}}
+        <table class="table">
+          <tr>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+          {{#each timekitBookings}}
+          <tr>
+            <td>{{startDate}}{{startTime}}{{endTime}}</td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        All Users
+      </h4>
+    </div>
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </tr>
+        {{#each user}}
+          <tr>
+            <td>{{firstName}}{{facebook.firstName}}{{google.firstName}}</td>
+            <td>{{lastName}}{{facebook.lastName}}{{google.lastName}}</td>
+            <td>{{email}}{{facebook.email}}{{google.email}}</td>
+          </tr>
+        {{/each}}
+        </table>
+      </div>
+  </div>
+</div>
