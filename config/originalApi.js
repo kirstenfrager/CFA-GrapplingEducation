@@ -136,8 +136,8 @@ function listEvents(auth) {
         // **** busyTime: array of events from google calendar which has : startDateTime and endDateTime.
         busyTime = { free: false, startTime: startTime, endTime: endTime, date: startDate}
         console.log(busyTime)
-        reverseTime = { end: end, start: start }
-        console.log(reverseTime)
+        // reverseTime = { end: end, start: start }
+        // console.log(reverseTime)
       }
     }
   });
