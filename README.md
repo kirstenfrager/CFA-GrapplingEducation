@@ -13,14 +13,12 @@
 - [Design](#wireframes-and-design)
   * [Design Changes](#design-changes)
 - [Getting Started](#getting-started)
-  * [Sub-heading](#sub-heading-2)
-    + [Sub-sub-heading](#sub-sub-heading-2)
 - [Google Calendar](#google-calendar-synch)
   * [Timekit](#option-one)
-    + [Google Calendar API](#option-two)
+  * [Google Calendar API](#option-two)
 - [Mocha and Chai Testing](#using-mocha-and-chai-to-help-write-a-function)
   * [Testing Code](#testing-code)
-    + [Function Code](#function-code)
+  * [Function Code](#function-code)
 
 ------
 
