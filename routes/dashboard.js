@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
+var User = require('../models/User');
 var googleApiOne = require('../config/googleApiOne');
 var googleApiThree = require('../config/googleApiThree');
 

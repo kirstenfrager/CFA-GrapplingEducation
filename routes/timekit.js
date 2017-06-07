@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
+var User = require('../models/User');
 
 router.get('/', function(req, res, next) {
   const userId = req.session.passport.user;

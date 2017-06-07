@@ -18,8 +18,8 @@ var MongoStore = require('connect-mongo')(session);
 const mlabpassword = process.env.DBPASSWORD
 
 var mongoose = require('mongoose');
-mongoose.connect(`mongodb://grapplingeducation:${mlabpassword}@ds113282.mlab.com:13282/grappling-education`);
-// mongoose.connect('mongodb://localhost/grapplingeducation')
+// mongoose.connect(`mongodb://grapplingeducation:${mlabpassword}@ds113282.mlab.com:13282/grappling-education`);
+mongoose.connect('mongodb://localhost/grapplingeducation')
 var db = mongoose.connection;
 
 // files used for routes
