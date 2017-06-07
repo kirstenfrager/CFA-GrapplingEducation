@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const getTimeSlots = require('../models/bookingSlots');
+// const getTimeSlots = require('../models/bookingSlots');
 
 function getTimeSlots(today, numDays) {
 
