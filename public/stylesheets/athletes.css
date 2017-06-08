@@ -3,3 +3,25 @@
   background-size: cover;
   height: 600px;
 }
+
+.cv-background {
+  background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496368575/imageedit_4_5169492822_fsqc73.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.cv-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.cv-sub-heading {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.cv-text li {
+  font-size: 15px;
+}
