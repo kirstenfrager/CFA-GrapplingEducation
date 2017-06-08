@@ -146,7 +146,7 @@ console.log(dailySlots)
 
 ### Platform
 
-![Grappling Education](https://lh3.googleusercontent.com/-vbP6L0U47Ao/WTjPikqcE-I/AAAAAAAAANU/8iCVtjxBEPwL5vKZFtb6zgXlt_rZ3UVgQCLcB/s800/websitegif.gif "websitegif.gif")
+![website](https://lh3.googleusercontent.com/-M5ry_YPm48w/WTjqvZ-XdwI/AAAAAAAAANo/habcEiVe7iIMHFd2Sg7_afsq4cog8sEhgCLcB/s800/website.gif "website.gif")
 
 ![Booking Home Page](https://lh3.googleusercontent.com/-Zi79bCRNjeY/WTeVYK7ZPCI/AAAAAAAAAMc/jpN2CBIrn84z2RRStIE3OhbhVUWBqbkkwCLcB/s800/Screen+Shot+2017-06-07+at+3.51.40+pm.png "Screen Shot 2017-06-07 at 3.51.40 pm.png")
 
