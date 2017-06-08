@@ -1,3 +1,8 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   /*background-image: url('http://res.cloudinary.com/df0hftplx/image/upload/v1496389606/opacity-logo-transparent2_uj572a.png');*/
   background-repeat: no-repeat;
@@ -5,6 +10,8 @@ body {
   /*overflow: hidden;*/
   /*margin-top: 5em;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  margin-bottom: 60px;
 }
 
 a {

@@ -1,7 +1,13 @@
-.footer {
-  padding: 1em;
-  text-align: center;
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  /* Set the fixed height of the footer here */
+  height: 60px;
   background-color: #151515;
+  text-align: center;
 }
 
 .footer-links a {
@@ -9,7 +15,7 @@
 }
 
 .footer-links img {
-  width: 60px;
+  width: 40px;
 }
 
 .admin-login a {

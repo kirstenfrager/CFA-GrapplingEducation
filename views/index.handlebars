@@ -88,20 +88,16 @@
 <!-- /.slider-pages -->
 
 
-<div class="mobile-only">
+<div class="mobile-only one-buffer-below">
   <div class="col-sm-4 mobile-pic-one"></div>
   <div class="col-sm-4 mobile-pic-two"></div>
   <div class="col-sm-4 mobile-pic-three"></div>
-  <div class="mobile-slider one-buffer-below"></div>
 </div>
-
-<h1 class="changing-text one-buffer">Grappling Education:
-  <span class="txt-rotate fw700" data-period="2500" data-rotate='[ "JUDO", "BRAZILIAN JIU JITSU", "SUBMISSION WRESTLING"]'></span>
-</h1>
-
 <div class="container">
+<h1 class="changing-text">Grappling Education <br> <span id="changingword">Brazilian Jiu Jitsu</span></h1>
 
-  <div class="row homepage-about two-buffer">
+
+  <div class="row homepage-about two-buffer mobile-about-homepage">
     <p>
       Grappling Education is a comprehensive booking platform for grappling lessons with our team of skilled grappling coaches.
     </p>
@@ -129,7 +125,21 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          {{> timekits }}
+          <div id="bookingjs"></div>
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+          <script src="//cdn.timekit.io/booking-js/v1/booking.min.js" defer></script>
+          <script>
+            window.timekitBookingConfig = {
+              widgetId: 'ee51e49d-f0ce-4bfc-b909-ca9e55a6b6d9',
+              fullCalendar: {
+                    header: {
+                      left:       '',
+                      center:     '',
+                      right:      'today, prev, next'   // not
+                    }
+              }
+            }
+          </script>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
