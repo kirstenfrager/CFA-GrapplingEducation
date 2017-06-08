@@ -13,24 +13,27 @@
 - [Design](#wireframes-and-design)
   * [Design Changes](#design-changes)
 - [Getting Started](#getting-started)
-- [Google Calendar](#google-calendar-synch)
+  * [Sub-heading](#sub-heading-2)
+    + [Sub-sub-heading](#sub-sub-heading-2)
+- [Google Calendar](#google-calendar-sync)
   * [Timekit](#option-one)
-  * [Google Calendar API](#option-two)
+    + [Google Calendar API](#option-two)
 - [Mocha and Chai Testing](#using-mocha-and-chai-to-help-write-a-function)
   * [Testing Code](#testing-code)
-  * [Function Code](#function-code)
+    + [Function Code](#function-code)
+- [Platform](#platform)
 
 ------
 
 ### Context
 
-The booking platform is synched with the trainer's google calendar which renders the 'available to book' time slots depending on the free time in his calendar.
+The booking platform is synced with the trainer's google calendar which renders the 'available to book' time slots depending on the free time in his calendar.
 
 Once a booking is made, it automatically gets updated in the trainer's google calendar and that available time slot for booking disappears from the platform.
 
 ### Requirements
 
->- List available times to book which are taken from free space in the synched google calendar
+>- List available times to book which are taken from free space in the synced google calendar
 >- Once a time is clicked to book, guide them through the booking process until confirmed
 >- Have an informative website, displaying information about the different programs available and the instructor
 
@@ -76,14 +79,14 @@ express --view=handlebars GrapplingEducation
 
 ----------
 
-### Google Calendar Synch
+### Google Calendar Sync
 
 I approached this task having two options.
 
 ##### **Option One**: 
-Creating a booking platform using an external package to help with the process. As I needed to specifically have it synched with a google calendar due to my client having a rotating roster (every week available times would be different - no two weeks the same), I wanted to make sure at the end of two weeks I had something to show my client no matter what (if my coding from scratch method wouldn't be complete in time).
+Creating a booking platform using an external package to help with the process. As I needed to specifically have it synced with a google calendar due to my client having a rotating roster (every week available times would be different - no two weeks the same), I wanted to make sure at the end of two weeks I had something to show my client no matter what (if my coding from scratch method wouldn't be complete in time).
 [Timekit](https://www.timekit.io/) allows API personalisation and widget calls to be made while easily synching any google calendars for one or more users. 
-This is a key advantage to using this platform, as when my client wants to add more instructors to the booking platform, their calendars can easily be added and synched. 
+This is a key advantage to using this platform, as when my client wants to add more instructors to the booking platform, their calendars can easily be added and synced. 
 
 https://github.com/timekit-io/booking-js
 
@@ -142,3 +145,11 @@ console.log(dailySlots)
 ```
 
 ----------
+
+### Platform
+
+![Grappling Education](https://lh3.googleusercontent.com/-vbP6L0U47Ao/WTjPikqcE-I/AAAAAAAAANU/8iCVtjxBEPwL5vKZFtb6zgXlt_rZ3UVgQCLcB/s800/websitegif.gif "websitegif.gif")
+
+![Booking Home Page](https://lh3.googleusercontent.com/-Zi79bCRNjeY/WTeVYK7ZPCI/AAAAAAAAAMc/jpN2CBIrn84z2RRStIE3OhbhVUWBqbkkwCLcB/s800/Screen+Shot+2017-06-07+at+3.51.40+pm.png "Screen Shot 2017-06-07 at 3.51.40 pm.png")
+
+![Fighter Profile](https://lh3.googleusercontent.com/-YNh_AmK5uhQ/WTeVeVy3VqI/AAAAAAAAAMk/O7fLJ8arqlAcVyQvMmuO163uf9khFXSkQCLcB/s800/Screen+Shot+2017-06-07+at+3.52.06+pm.png "Screen Shot 2017-06-07 at 3.52.06 pm.png")
